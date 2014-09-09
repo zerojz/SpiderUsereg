@@ -18,7 +18,7 @@ class ConnectToInternet(User.User):
 			User.User.__init__(self,name,password)
 
 	def CTI_login(self):
-		postdata = urllib.urlencode({'username':self.user_name,'password':hashlib.md5(self.user_password).hexdigest(),'drop':'0','type':'1','n':'100'})
+		postdata = urllib.urlencode({'username':self.user_name,'password':self.user_password,'drop':'0','type':'1','n':'100'})
 		req = urllib2.Request(url = ConnectToInternet.urlLogin, data = postdata)
 		result = urllib2.urlopen(req)
 		return result.read()

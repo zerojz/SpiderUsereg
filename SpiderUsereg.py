@@ -35,7 +35,7 @@ class SpiderUsereg(User.User):
 		self.login_successfully = False
 
 	def su_login(self):
-		postdata = urllib.urlencode({'action':'login','user_login_name':self.user_name,'user_password':User.User.u_getMD5Password(self)})
+		postdata = urllib.urlencode({'action':'login','user_login_name':self.user_name,'user_password':self.user_password})
 
 		#post the data
 		req = urllib2.Request(url = SpiderUsereg.urlLogin,data = postdata)
